@@ -1,0 +1,34 @@
+def guard():
+    global toket
+    os.system('clear')
+    try:
+        toket = open('login.txt', 'r').read()
+    except IOError:
+        print '\x1b[1;91m[!] Token tidak ditemukan'
+        os.system('rm -rf login.txt')
+        time.sleep(1)
+        login()
+
+    os.system('clear')
+    print logo
+    print 40 * '\x1b[1;97m\xe2\x95\x90'
+    print '\x1b[1;37;40m1. Aktifkan'
+    print '\x1b[1;37;40m2. NonAktifkan'
+    print '\x1b[1;31;40m0. Kembali'
+    print
+    g = raw_input('\x1b[1;91m-\xe2\x96\xba\x1b[1;97m ')
+    if g == '1':
+        aktif = 'true'
+        gaz(toket, aktif)
+    else:
+        if g == '2':
+            non = 'false'
+            gaz(toket, non)
+        else:
+            if g == '0':
+                lain()
+            else:
+                if g == '':
+                    keluar()
+                else:
+                    keluar()
